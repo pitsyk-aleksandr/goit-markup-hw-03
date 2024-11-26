@@ -1,0 +1,417 @@
+/* :root - специфичный аналог селектора <html> в CSS*/
+/* Указываются */
+/* CSS-переменные (кастомные свойства) */
+:root {
+  /* #757575 - p, header - a(email) и a(tel) - не активные */
+  --main-text-color: #757575;
+  /* #212121 - h2, h3, a(nav in header) - не активный*/
+  --second-text-color: #212121;
+  /* #2196F3 - logo, a(nav):hover, button(background)*/
+  --acsent-color: #2196f3;
+  /* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+  --main-white-color: #ffffff;
+  /* #2F303A - background-hero, background-footer */
+  --background-grey-color: #2f303a;
+  /* #F5F4FA - background-section-team */
+  --background-section-color: #f5f4fa;
+  /* #000000 - logo(header)*/
+  --main-black-color: #000000;
+  /* rgba(255,255,255,0.6) - adress (tel,email) */
+  --text-footer-tel-color: rgba(255, 255, 255, 0.6);
+  /* #ECECEC - обводка-header + line в index.html (между header и main)*/
+  --stroke-index-color: #ececec;
+  /* #EEEEEE - обводка карточки в portfolio.html */
+  --stroke-portfolio-color: #eeeeee;
+}
+
+/* Палитра основных цветов */
+/* #757575 - p, a(email) и a(tel) - не активные */
+/* #212121 - h2, h3, a(nav in header) - не активный*/
+/* #2196F3 - logo, a(nav):hover, button(background)*/
+/* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+/* #2F303A - background-hero, background-footer */
+/* #F5F4FA - background-section-team */
+/* #000000 - logo(header)*/
+/* rgba(255,255,255,0.6) - adress (tel,email) */
+/* #ECECEC - обводка-header + line в index.html (между header и main)*/
+/* #EEEEEE - обводка карточки в portfolio.html */
+
+/* Шрифты */
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Задание всем элементам свойства box-sizing: border-box; */
+html {
+  box-sizing: border-box;
+}
+
+/* Наследование свойств для элемента от ближайшего предка */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Тело сайта */
+body {
+  /* Обнуление внешних отступов для тела сайта */
+  margin: 0px;
+  background-color: var(--main-white-color);
+  color: var(--main-text-color);
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+}
+
+/* Утилиты */
+
+/* Класс для настройки ссылок - может быть вторым классом для тегов <a>  */
+.link {
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+}
+
+/* Класс для настройки всех перечней - может быть вторым классом в тегах ul */
+.list {
+  /* Убрать первые точечки в неупорядоченном списке */
+  list-style: none;
+}
+
+.page {
+  width: 1200px;
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+}
+/* Верхняя строка - header */
+.page-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: tomato;
+}
+
+/* Логотип - общие свойства */
+.logo {
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 3%;
+
+  background-color: brown;
+}
+/* Логотип - синяя часть текста */
+.logo-blue {
+  color: var(--acsent-color);
+}
+/* Логотип - черная часть текста - в header */
+.logo-black {
+  color: var(--main-black-color);
+}
+/* Логотип - белая часть текста - в footer */
+.logo-white {
+  color: var(--main-white-color);
+}
+
+/* Стилизация header */
+/* Стилизация меню .nav-site */
+.nav-site {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  background-color: blueviolet;
+}
+
+.nav-site .link {
+  color: var(--second-text-color);
+}
+/* При наведении мышки или при получении фокуса */
+.nav-site .link:hover,
+.nav-site .link:focus {
+  color: var(--acsent-color);
+}
+
+/* Правило - другой цвет ссылки , если ссылка указывает на текущую страницу */
+/* Обязательно .link.current БЕЗ ПРОБЕЛА, тогда применяется class="link current" */
+.nav-site .link.current {
+  color: var(--acsent-color);
+}
+
+/* Стилизация меню .nav-adress */
+.nav-adress {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  background-color: greenyellow;
+}
+.nav-adress .link {
+  color: var(--main-text-color);
+}
+/* При наведении мышки или при получении фокуса */
+.nav-adress .link:hover,
+.nav-adress .link:focus {
+  color: var(--acsent-color);
+}
+
+/* hero - Приветствие к кнопкой call-to-action */
+.hero {
+  background-color: var(--background-grey-color);
+}
+.hero-title {
+  color: var(--main-white-color);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.363;
+  letter-spacing: 0.06em;
+  /* Выравнивание этого текстового блока по центру */
+  text-align: center;
+}
+
+.hero-button {
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 32px;
+  padding-top: 10px;
+  padding-right: 32px;
+  padding-bottom: 10px;
+  /* Шрифт названия кнопки */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.875; /* 30 px*/
+  letter-spacing: 0.06em;
+}
+
+.hero-button:hover {
+  /* Вид курсора при наведении на кнопку */
+  cursor: pointer;
+}
+
+.hero-button:active {
+  /* Меняется цвет фона кнопки при нажатии на кнопку */
+  background-color: var(--main-black-color);
+}
+
+/* Секции  */
+.section-title {
+  text-align: center;
+  color: var(--second-text-color);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+/* Только для секции Преимущества убирает вывод на экран заголовка */
+.section-title.feature {
+  /* Убирает вывод элемента на экран */
+  /* visibility: hidden; */
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: row;
+}
+
+/* feature - Особливості - Преимущества */
+.feature-list .title {
+  color: var(--second-text-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+.feature-list .text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71428; /* 24px */
+  letter-spacing: 0.03em;
+}
+
+/* work - Роботи */
+.work-list {
+  display: flex;
+  flex-direction: row;
+}
+
+/* team - Команда */
+.team {
+  background-color: var(--background-section-color);
+}
+
+.team-list {
+  display: flex;
+  flex-direction: row;
+}
+.team-list-item .name {
+  color: var(--second-text-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+.team-list-item .type-worker {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+/* Portfolio */
+
+.portfolio-title {
+  color: var(--main-black-color);
+}
+
+/* filter - Фильтры */
+.filter-title {
+  color: var(--main-black-color);
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-button {
+  color: var(--second-text-color);
+  background-color: var(--background-section-color);
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 22px;
+  padding-top: 6px;
+  padding-right: 22px;
+  padding-bottom: 6px;
+  /* Шрифт */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.625; /* 26px */
+  letter-spacing: 0.03em;
+}
+
+.filter-button:hover {
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+  /* Вид курсора при наведении на кнопку */
+  cursor: pointer;
+}
+
+.filter-button.current {
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+}
+
+/* project - Проэкты */
+.project-title {
+  color: var(--main-black-color);
+}
+
+.project-list {
+  display: flex;
+  flex-direction: row;
+}
+.project-name {
+  color: var(--second-text-color);
+  /* Шрифт */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2; /* 36px */
+  letter-spacing: 0.06em;
+}
+.project-type {
+  color: var(--main-text-color);
+  /* Шрифт */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.875; /* 30px */
+  letter-spacing: 0.03em;
+}
+
+/* footer */
+footer {
+  background-color: var(--background-grey-color);
+}
+/* Почтовый адрес */
+address {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71428; /* 24px */
+  letter-spacing: 0.03em;
+}
+address .description {
+  color: var(--main-white-color);
+}
+/* Email */
+address .email {
+  color: var(--text-footer-tel-color);
+}
+address .email:hover,
+address .email:focus {
+  color: var(--acsent-color);
+}
+/* Телефон */
+address .tel {
+  color: var(--text-footer-tel-color);
+}
+address .tel:hover,
+address .tel:focus {
+  color: var(--acsent-color);
+}
