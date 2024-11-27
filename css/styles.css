@@ -81,6 +81,18 @@ html {
   box-sizing: inherit;
 }
 
+/* Обнуление отступов для заголовков и абзаца */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 /* Тело сайта */
 body {
   /* Обнуление внешних отступов для тела сайта */
@@ -101,24 +113,36 @@ body {
 
 /* Класс для настройки всех перечней - может быть вторым классом в тегах ul */
 .list {
+  /* Сбросить все отступы по умолчанию */
+  margin: 0;
+  padding: 0;
   /* Убрать первые точечки в неупорядоченном списке */
   list-style: none;
 }
 
-.page {
+/* Это класс, который ограничивает контент размером сетки и устанавливает отступы */
+.container {
+  margin-left: auto;
+  margin-right: auto;
   width: 1200px;
   padding-top: 0px;
   padding-right: 15px;
   padding-bottom: 0px;
   padding-left: 15px;
 }
+
 /* Верхняя строка - header */
 .page-header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border: var(--stroke-index-color) solid 1px;
+}
+
+.page-header .container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: tomato;
 }
 
 /* Логотип - общие свойства */
@@ -130,8 +154,6 @@ body {
   font-size: 26px;
   line-height: 1.2;
   letter-spacing: 3%;
-
-  background-color: brown;
 }
 /* Логотип - синяя часть текста */
 .logo-blue {
@@ -157,8 +179,6 @@ body {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-
-  background-color: blueviolet;
 }
 
 .nav-site .link {
@@ -186,8 +206,6 @@ body {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-
-  background-color: greenyellow;
 }
 .nav-adress .link {
   color: var(--main-text-color);
@@ -200,9 +218,21 @@ body {
 
 /* hero - Приветствие к кнопкой call-to-action */
 .hero {
+  /* Выравнивание заголовка и кнопки по центру */
+  text-align: center;
+  /* Внутренние отступы */
+  padding-top: 200px;
+  padding-bottom: 200px;
+
   background-color: var(--background-grey-color);
 }
 .hero-title {
+  outline: tomato solid 1px;
+  /* Обнуление внешних отступов, которые устанавлены для h1 по умолчанию */
+  margin-top: 0;
+  /* Расстояние до кнопки */
+  margin-bottom: 30px;
+
   color: var(--main-white-color);
   font-weight: 900;
   font-size: 44px;
@@ -244,7 +274,18 @@ body {
 }
 
 /* Секции  */
+
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.section.no-padding-bottom {
+  padding-bottom: 0;
+}
+
 .section-title {
+  margin-bottom: 50px;
   text-align: center;
   color: var(--second-text-color);
   font-weight: 700;
@@ -254,23 +295,29 @@ body {
 }
 
 /* Только для секции Преимущества убирает вывод на экран заголовка */
-.section-title.feature {
-  /* Убирает вывод элемента на экран */
-  /* visibility: hidden; */
-}
+/* .section-title.feature {
+  visibility: hidden;
+}  */
 
 .feature-list {
   display: flex;
   flex-direction: row;
+  gap: 30px;
 }
 
 /* feature - Особливості - Преимущества */
 .feature-list .title {
+  margin-bottom: 10px;
   color: var(--second-text-color);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.03em;
+}
+
+/* Для всех єлементов списка Преимущества */
+.feature-list > .item:nth-child(2n) {
+  background-color: var(--acsent-color);
 }
 
 .feature-list .text {
@@ -284,6 +331,8 @@ body {
 .work-list {
   display: flex;
   flex-direction: row;
+  /* Расстояние между видами работ  */
+  gap: 30px;
 }
 
 /* team - Команда */
@@ -291,11 +340,19 @@ body {
   background-color: var(--background-section-color);
 }
 
-.team-list {
+.team .team-list {
   display: flex;
   flex-direction: row;
+  /* Расстояние между карточками работников */
+  gap: 30px;
 }
+
+.team-list-item .photo {
+  margin-bottom: 30px;
+}
+
 .team-list-item .name {
+  margin-bottom: 10px;
   color: var(--second-text-color);
   font-weight: 500;
   font-size: 16px;
@@ -312,17 +369,22 @@ body {
 /* Portfolio */
 
 .portfolio-title {
+  text-align: center;
   color: var(--main-black-color);
 }
 
 /* filter - Фильтры */
 .filter-title {
+  text-align: center;
   color: var(--main-black-color);
 }
 
 .filter-list {
+  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
+  gap: 8px;
+  justify-content: center;
 }
 
 .filter-button {
@@ -360,14 +422,33 @@ body {
 
 /* project - Проэкты */
 .project-title {
+  text-align: center;
   color: var(--main-black-color);
 }
 
 .project-list {
   display: flex;
   flex-direction: row;
+  /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
+  flex-wrap: wrap;
+  /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
+  gap: 30px;
 }
+
+.project-link {
+  text-decoration: none;
+  display: inline-block;
+  line-height: 0;
+}
+
+.project-name-type {
+  padding: 20px;
+  border: var(--stroke-portfolio-color) solid 1px;
+  text-align: left;
+}
+
 .project-name {
+  margin-bottom: 4px;
   color: var(--second-text-color);
   /* Шрифт */
   font-weight: 700;
@@ -375,6 +456,7 @@ body {
   line-height: 2; /* 36px */
   letter-spacing: 0.06em;
 }
+
 .project-type {
   color: var(--main-text-color);
   /* Шрифт */
@@ -388,6 +470,12 @@ body {
 footer {
   background-color: var(--background-grey-color);
 }
+
+footer .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 /* Почтовый адрес */
 address {
   font-style: normal;
@@ -397,10 +485,13 @@ address {
   letter-spacing: 0.03em;
 }
 address .description {
+  margin-top: 20px;
+  margin-bottom: 9px;
   color: var(--main-white-color);
 }
 /* Email */
 address .email {
+  margin-bottom: 9px;
   color: var(--text-footer-tel-color);
 }
 address .email:hover,
