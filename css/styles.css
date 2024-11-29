@@ -97,19 +97,15 @@ p {
 body {
   /* Обнуление внешних отступов для тела сайта */
   margin: 0px;
+
   background-color: var(--main-white-color);
   color: var(--main-text-color);
+
   font-family: 'Roboto', sans-serif;
   font-style: normal;
 }
 
 /* Утилиты */
-
-/* Класс для настройки ссылок - может быть вторым классом для тегов <a>  */
-.link {
-  /* Убрать подчеркивание для ссылки */
-  text-decoration: none;
-}
 
 /* Класс для настройки всех перечней - может быть вторым классом в тегах ul */
 .list {
@@ -133,15 +129,16 @@ body {
 
 /* Верхняя строка - header */
 .page-header {
-  padding-top: 24px;
-  padding-bottom: 24px;
   border: var(--stroke-index-color) solid 1px;
 }
 
 .page-header .container {
   display: flex;
+  /* Установка всех элементов в строку */
   flex-direction: row;
+  /* Выравнивание всех элементов контейнера по второстепенной оси - по центру */
   align-items: center;
+  /* Выравнивание элементов по главной оси  */
   justify-content: space-between;
 }
 
@@ -154,6 +151,9 @@ body {
   font-size: 26px;
   line-height: 1.2;
   letter-spacing: 3%;
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
 }
 /* Логотип - синяя часть текста */
 .logo-blue {
@@ -173,7 +173,8 @@ body {
 .nav-site {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  /* Расстояние между пунктами меню навигации */
+  /* gap: 50px; */
 
   font-weight: 500;
   font-size: 14px;
@@ -181,8 +182,19 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* Расстояние между пунктами меню навигации */
+.nav-site .item:not(:last-child) {
+  margin-right: 50px;
+}
+
 .nav-site .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--second-text-color);
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
 }
 /* При наведении мышки или при получении фокуса */
 .nav-site .link:hover,
@@ -200,7 +212,8 @@ body {
 .nav-adress {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  /* Расстояние между пунктами меню навигации */
+  /* gap: 50px; */
 
   font-weight: 500;
   font-size: 14px;
@@ -208,8 +221,20 @@ body {
   letter-spacing: 0.02em;
 }
 .nav-adress .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--main-text-color);
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
 }
+
+/* Расстояние между пунктами меню навигации - задаем через селектор соседа */
+.nav-adress .item + .item {
+  margin-left: 50px;
+}
+
 /* При наведении мышки или при получении фокуса */
 .nav-adress .link:hover,
 .nav-adress .link:focus {
@@ -227,7 +252,7 @@ body {
   background-color: var(--background-grey-color);
 }
 .hero-title {
-  outline: tomato solid 1px;
+  /* outline: tomato solid 1px; */
   /* Обнуление внешних отступов, которые устанавлены для h1 по умолчанию */
   margin-top: 0;
   /* Расстояние до кнопки */
@@ -243,17 +268,20 @@ body {
 }
 
 .hero-button {
-  color: var(--main-white-color);
-  background-color: var(--acsent-color);
-  /* Радиус скругления углов кнопки */
-  border-radius: 4px;
-  /* Обводка кнопки - отсутствует */
-  border: none;
   /* Внутренние отступы от края кнопки до текста */
   padding-left: 32px;
   padding-top: 10px;
   padding-right: 32px;
   padding-bottom: 10px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+
   /* Шрифт названия кнопки */
   /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
   font-family: inherit;
@@ -286,12 +314,14 @@ body {
 
 .section-title {
   margin-bottom: 50px;
-  text-align: center;
+
   color: var(--second-text-color);
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
   letter-spacing: 0.03em;
+  /* Выравнивание текста по центру */
+  text-align: center;
 }
 
 /* Только для секции Преимущества убирает вывод на экран заголовка */
@@ -302,20 +332,25 @@ body {
 .feature-list {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
+  /* gap: 30px; */
+  row-gap: 30px;
+  column-gap: 30px;
 }
 
 /* feature - Особливості - Преимущества */
 .feature-list .title {
   margin-bottom: 10px;
+
   color: var(--second-text-color);
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.03em;
 }
 
-/* Для всех єлементов списка Преимущества */
+/* Для всех четных элементов списка Преимущества */
 .feature-list > .item:nth-child(2n) {
   background-color: var(--acsent-color);
 }
@@ -353,7 +388,9 @@ body {
 
 .team-list-item .name {
   margin-bottom: 10px;
+
   color: var(--second-text-color);
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -369,36 +406,44 @@ body {
 /* Portfolio */
 
 .portfolio-title {
-  text-align: center;
   color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
 }
 
 /* filter - Фильтры */
 .filter-title {
-  text-align: center;
   color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
 }
 
 .filter-list {
-  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
   gap: 8px;
   justify-content: center;
+
+  margin-bottom: 24px;
 }
 
 .filter-button {
-  color: var(--second-text-color);
-  background-color: var(--background-section-color);
-  /* Радиус скругления углов кнопки */
-  border-radius: 4px;
-  /* Обводка кнопки - отсутствует */
-  border: none;
   /* Внутренние отступы от края кнопки до текста */
   padding-left: 22px;
   padding-top: 6px;
   padding-right: 22px;
   padding-bottom: 6px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--second-text-color);
+  background-color: var(--background-section-color);
+
   /* Шрифт */
   /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
   font-family: inherit;
@@ -409,10 +454,11 @@ body {
 }
 
 .filter-button:hover {
-  color: var(--main-white-color);
-  background-color: var(--acsent-color);
   /* Вид курсора при наведении на кнопку */
   cursor: pointer;
+
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
 }
 
 .filter-button.current {
@@ -422,8 +468,10 @@ body {
 
 /* project - Проэкты */
 .project-title {
-  text-align: center;
   color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
 }
 
 .project-list {
@@ -435,21 +483,36 @@ body {
   gap: 30px;
 }
 
+/* .project-item { */
+/* Масштабируемая ширина 1 карточки, если 3 карточки в строке и пробел (gap: 30px;) */
+/* flex-basis: calc((100% - 60px) / 3); */
+/* } */
+
 .project-link {
+  /* Делаем ссылку блочным элементом */
+  display: block;
+
+  /* Убираем подчеркивание для ссылки */
   text-decoration: none;
-  display: inline-block;
-  line-height: 0;
+}
+
+.project-photo {
+  /* Делаем картинку блочным элементом, убирая расстояние снизу 4px, установленное по умолчанию */
+  display: block;
 }
 
 .project-name-type {
   padding: 20px;
   border: var(--stroke-portfolio-color) solid 1px;
+
   text-align: left;
 }
 
 .project-name {
   margin-bottom: 4px;
+
   color: var(--second-text-color);
+
   /* Шрифт */
   font-weight: 700;
   font-size: 18px;
@@ -459,6 +522,7 @@ body {
 
 .project-type {
   color: var(--main-text-color);
+
   /* Шрифт */
   font-weight: 400;
   font-size: 16px;
@@ -487,21 +551,33 @@ address {
 address .description {
   margin-top: 20px;
   margin-bottom: 9px;
+
   color: var(--main-white-color);
 }
+
 /* Email */
 address .email {
   margin-bottom: 9px;
+
   color: var(--text-footer-tel-color);
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
 }
+
 address .email:hover,
 address .email:focus {
   color: var(--acsent-color);
 }
+
 /* Телефон */
 address .tel {
   color: var(--text-footer-tel-color);
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
 }
+
 address .tel:hover,
 address .tel:focus {
   color: var(--acsent-color);
