@@ -1,0 +1,255 @@
+/* Main styles */
+
+/* :root { */
+  /* Шрифти */
+  /* --font-family: 'Roboto', sans-serif; */
+  /* --second-family: 'Raleway', sans-serif; */
+
+  /* Кольори */
+  /* --iris: #4d5ae5; */
+  /* --ocean: #404bbf; */
+  /* --navy-blue: #2e2f42; */
+  /* --green: #31d0aa; */
+  /* --slate: #434455; */
+  /* --light-slate: #8e8f99; */
+  /* --cornflower: #e7e9fc; */
+  /* --cloud: #f4f4fd; */
+  /* --navy-blue-modal: rgba(46, 47, 66, 0.4); */
+  /* --grey: rgba(46, 47, 66, 0.7); */
+  /* --white: #fff; */
+  /* --dairy: #fcfcfc; */
+/* } */
+
+/* Глобальні стилі */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  /* Інтерліньяж - міжрядковий інтервал */
+  line-height: 1.5;
+  /* Шнтервал між символами */
+  letter-spacing: 0.02em;
+  /* Колір основного тексту - стиль  slate  */
+  color: #434455;
+  background-color: #ffffff;
+
+}
+
+/* ul, */
+/* ol { */
+  /* Скидання дефолтних маркерів для списків */
+  /* list-style-type: none; */
+/* } */
+
+/* a { */
+  /* Скидання дефолтного підкреслення для посилань */
+  /* text-decoration: none; */
+/* } */
+
+/* Хедер сторінки - page-header */
+/* .page-header {} */
+
+
+/* Клас для всього логотипу */
+.logo {
+  /* Перевід тексту в верхній регістр */
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+   /* Колір тексту - стиль  iris  */
+  color: #4d5ae5;
+}
+
+/* Клас для другої частини логотипу в хедері */
+.page-header .logo-end {
+  /* Колір тексту - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+/* Клас для другої частини логотипу в футері */
+.page-footer .logo-end {
+  /* Колір  - стиль  cloud  */
+  color: #f4f4fd;
+}
+
+.menu-link {
+  font-weight: 500;
+  /* Колір тексту  - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  /* Колір тексту - стиль  ocean  */
+  color: #404bbf;
+}
+
+
+.address {
+    /* Скидаємо дефолтне значення для стилю - курсив */
+  font-style: normal;
+}
+
+.address .link {
+  font-weight: 400;
+  font-size: 16px;
+  /* Колір тексту посилань - стиль  slate  */
+  color: #434455;
+}
+
+.address .link:hover,
+.address .link:focus {
+  /* Колір - стиль  ocean  */
+  color: #404bbf;
+}
+
+
+/* Cекція  hero  */
+.hero {
+  /* Колір - стиль  navy-blue  */
+  background-color: #2e2f42;
+}
+
+/* Заголовок */
+.hero-title {
+  /* Текст - стиль Header 1 */
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.07;
+  letter-spacing: 0.02em;
+  text-align: center;
+  /* Колір - стиль  white  */
+  color: #ffffff;
+}
+
+/* Кнопка */
+.hero-button {
+
+  /* Шрифт тексту кнопки */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5 ;
+  letter-spacing: 0.04em;
+
+  /* Колір тексту  - стиль  white  */
+  color: #ffffff;
+  /* Колір - стиль  iris  */
+  background-color: #4d5ae5;
+  /* Тип курсора */
+  cursor: pointer;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  /* Колір - стиль  ocean  */
+  background-color: #404bbf;
+}
+
+/* Стилі для всіх секцій */
+/* .section {} */
+
+/* Заголовки секцій - клас Header 2 */
+.section .title {
+  /* Визначення стилю написання тексту */
+  text-transform: capitalize;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  /* Колір - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+
+/* Секція  Features  */
+/* .feature-list {} */
+
+/* .feature-item {} */
+
+/* Підзаголовки секцій */
+.feature-title {
+  /* Текстовий стиль - Header 3 */
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  /* Колір  - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+/* .feature-text {} */
+
+.section.team {
+  /* Колір  - стиль  cloud  */
+  background-color: #f4f4fd;
+}
+
+
+
+/* Секція  Our Team  */
+/* .card-list {} */
+
+.card-item {
+    /* Колір - стиль  white  */
+  background-color: #ffffff;
+}
+
+/* .card-img {} */
+
+.card-name {
+  /* Текстовий стиль - Header 3 */
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  /* Колір - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+.card-position {
+  text-align: center;
+}
+
+
+/* Секція  Our Portfolio  */
+
+/* .project-list {} */
+
+/* .project-item {} */
+
+/* .project-img {} */
+
+.project-title {
+    /* Текстовий стиль - Header 3 */
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  /* text-align: center; */
+  /* Колір - стиль  navy-blue  */
+  color: #2e2f42;
+}
+
+/* .project-type {} */
+
+/* Футер сторінки - page-footer */
+.page-footer {
+  /* Колір   - стиль  navy-blue  */
+  background-color: #2e2f42;
+}
+
+.page-footer .link.logo {
+  /* Колір   - стиль  cloud  */
+  color: #f4f4fd;
+}
+
+.text-footer {
+  /* Колір   - стиль  cloud  */
+  color: #f4f4fd;
+}
+
