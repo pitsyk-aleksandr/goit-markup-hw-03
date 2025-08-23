@@ -1,5 +1,7 @@
 /* Main styles */
 
+/* Глобальні стилі */
+
 /* :root { */
   /* Шрифти */
   /* --font-family: 'Roboto', sans-serif; */
@@ -20,8 +22,49 @@
   /* --dairy: #fcfcfc; */
 /* } */
 
-/* Глобальні стилі */
+
+*,
+*::before,
+*::after {
+  /* Включаємо content, padding, border = в склад блоку */
+  box-sizing: border-box;
+}
+
+/* Глобальне скидання стилів */
+h1, h2, h3, h4, h5, h6, p {
+  /* Скидання дефолтних відступів */
+	margin: 0;
+}
+
+ul, ol {
+    /* Скидання дефолтних відступів та лівого паддінгу*/
+	margin: 0;
+	padding-left: 0;
+    /* Скидання дефолтних маркерів для списків */
+  list-style-type: none;
+}
+
+a {
+  /* Скидання дефолтного підкреслення для посилань */
+  text-decoration: none;
+}
+
+img {
+  /* Прибираємо нижній проміжок картинок для всього проєкту */
+	display: block;
+  /* Для того, щоб зображення, для якого явно не задано ширину, 
+  автоматично підлаштовувалося під ширину батьківського елемента */
+  max-width: 100%;
+}
+
+
+
+/* Стилі сторінки */
+
 body {
+  /* Скидання дефолтних відступів */
+	margin: 0;
+  
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   /* Інтерліньяж - міжрядковий інтервал */
@@ -31,22 +74,35 @@ body {
   /* Колір основного тексту - стиль  slate  */
   color: #434455;
   background-color: #ffffff;
-
 }
 
-/* ul, */
-/* ol { */
-  /* Скидання дефолтних маркерів для списків */
-  /* list-style-type: none; */
-/* } */
+/* Правила стилів для контейнера (header, footer + кожна секція = контейнер) */
+.container { 
+  max-width: 1440px;
+  padding-left: 15px;
+  padding-right:  15px;
+  margin-left: auto;  
+  margin-right: auto; 
+}
 
-/* a { */
-  /* Скидання дефолтного підкреслення для посилань */
-  /* text-decoration: none; */
-/* } */
 
 /* Хедер сторінки - page-header */
-/* .page-header {} */
+
+/* Нижняя полоса в один пиксель в .page-header */
+.page-header {
+  /* Внутрішні вертикальні відступи - 24px */
+  padding: 24px 0;
+  /* Колір - стиль cornflower */
+  border-bottom: 1px solid #e7e9fc ;
+}
+
+
+/* Flax-container хедера */
+.page-header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 
 /* Клас для всього логотипу */
@@ -74,6 +130,20 @@ body {
   color: #f4f4fd;
 }
 
+/* Flax-container навігації */
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 76px;
+}
+
+/* Flax-container основного меню */
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
 .menu-link {
   font-weight: 500;
   /* Колір тексту  - стиль  navy-blue  */
@@ -92,15 +162,22 @@ body {
   font-style: normal;
 }
 
-.address .link {
+/* Flax-container пунктів адреси */
+.address-list {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.address-link {
   font-weight: 400;
   font-size: 16px;
   /* Колір тексту посилань - стиль  slate  */
   color: #434455;
 }
 
-.address .link:hover,
-.address .link:focus {
+.address-link:hover,
+.address-link:focus {
   /* Колір - стиль  ocean  */
   color: #404bbf;
 }
@@ -108,6 +185,8 @@ body {
 
 /* Cекція  hero  */
 .hero {
+  /* Внутрішні вертикальні відступи */
+  padding: 188px 0;
   /* Колір - стиль  navy-blue  */
   background-color: #2e2f42;
 }
@@ -126,6 +205,23 @@ body {
 
 /* Кнопка */
 .hero-button {
+  display: block;
+
+  /* Відcтуп від тексту */
+  margin-top: 48px;
+
+  /* Вирівнювання кнопки по центру  */
+  margin-left: auto ;
+  margin-right: auto;
+
+  /* Внутрішні відступи (вертикальні - горизонтальні) */
+  padding: 16px 32px;
+
+  /* Радіус кнопки */
+  border-radius: 4px;
+
+  /* Тінь кнопки */
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15) ;
 
   /* Шрифт тексту кнопки */
   font-weight: 500;
@@ -137,6 +233,7 @@ body {
   color: #ffffff;
   /* Колір - стиль  iris  */
   background-color: #4d5ae5;
+
   /* Тип курсора */
   cursor: pointer;
 }
@@ -148,10 +245,14 @@ body {
 }
 
 /* Стилі для всіх секцій */
-/* .section {} */
+.section {
+  width: 100vw;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 
 /* Заголовки секцій - клас Header 2 */
-.section .title {
+.section-title {
   /* Визначення стилю написання тексту */
   text-transform: capitalize;
 
@@ -166,9 +267,35 @@ body {
 
 
 /* Секція  Features  */
-/* .feature-list {} */
+.feature .section-title {
+  /* ======================================================================= */
+  /* Для приховування заголовка другої секції використовується патерн – visually-hidden: */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  /* ======================================================================= */
+}
 
-/* .feature-item {} */
+/* Flex-container для списку переваг */
+.feature-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* Flex-container для однієї переваги */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 /* Підзаголовки секцій */
 .feature-title {
@@ -191,14 +318,37 @@ body {
 
 
 /* Секція  Our Team  */
-/* .card-list {} */
 
+.card-list { 
+  /* Вертикальний відступ від заголовка секції */
+  margin-top: 88px;
+  /* Flex-container для карток робітників */
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+}
+
+/* Картка робітника */
 .card-item {
-    /* Колір - стиль  white  */
+  display: flex;
+  flex-direction: column;
+  /* Розрахунок ширини блоку */
+  flex-basis: calc((100%-72px)/4);
+  
+  /* Колір - стиль  white  */
   background-color: #ffffff;
 }
 
 /* .card-img {} */
+
+/* Інформація щодо робітника */
+.card-content {
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .card-name {
   /* Текстовий стиль - Header 3 */
@@ -218,11 +368,34 @@ body {
 
 /* Секція  Our Portfolio  */
 
-/* .project-list {} */
+.project-list {
+  /* Вертикальний відступ від заголовка секції */
+  margin-top: 88px;
+  /* Flex-container для карток проєктів */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 48px;
+}
 
-/* .project-item {} */
+.project-item {
+  display: flex;
+  flex-direction: column;
+  /* Розрахунок ширини блоку */
+  /* width: 360px; */
+  flex-basis: calc((100%-48px)/3);
+}
 
 /* .project-img {} */
+
+/* Інформація щодо проєкту */
+.project-content {
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .project-title {
     /* Текстовий стиль - Header 3 */
@@ -239,8 +412,13 @@ body {
 
 /* Футер сторінки - page-footer */
 .page-footer {
+  padding: 100px 0;
   /* Колір   - стиль  navy-blue  */
   background-color: #2e2f42;
+}
+
+.footer-item {
+  width: 264px;
 }
 
 .page-footer .link.logo {
@@ -249,6 +427,7 @@ body {
 }
 
 .text-footer {
+  margin-top: 16px;
   /* Колір   - стиль  cloud  */
   color: #f4f4fd;
 }
