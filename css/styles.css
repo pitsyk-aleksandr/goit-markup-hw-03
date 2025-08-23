@@ -143,7 +143,7 @@ body {
 
 /* Flax-container основного меню */
 .main-menu {
-    /* Внутрішні вертикальні відступи - 24px */
+  /* Внутрішні вертикальні відступи - 24px */
   padding: 24px 0;
 
   display: flex;
@@ -152,6 +152,9 @@ body {
 }
 
 .menu-link {
+  /* Внутрішні вертикальні відступи - 24px */
+  padding: 24px 0;
+
   font-weight: 500;
   /* Колір тексту  - стиль  navy-blue  */
   color: #2e2f42;
