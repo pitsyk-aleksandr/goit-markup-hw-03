@@ -78,11 +78,15 @@ body {
 
 /* Правила стилів для контейнера (header, footer + кожна секція = контейнер) */
 .container { 
-  max-width: 1440px;
-  padding-left: 15px;
-  padding-right:  15px;
-  margin-left: auto;  
-  margin-right: auto; 
+  width: 1158px;
+  padding: 0 15px;
+  margin: 0 auto;  
+}
+
+/* Стилі для всіх секцій */
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 
@@ -102,11 +106,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 
 /* Клас для всього логотипу */
 .logo {
+  margin-right: 76px;
   /* Перевід тексту в верхній регістр */
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
@@ -130,11 +136,11 @@ body {
   color: #f4f4fd;
 }
 
-/* Flax-container навігації */
+/* Flex-container навігації */
 .nav {
   display: flex;
   flex-direction: row;
-  gap: 76px;
+  align-items: center;
 }
 
 /* Flax-container основного меню */
@@ -193,6 +199,8 @@ body {
 
 /* Заголовок */
 .hero-title {
+  max-width: 496px;
+  margin: 0 auto;
   /* Текст - стиль Header 1 */
   font-weight: 700;
   font-size: 56px;
@@ -216,6 +224,10 @@ body {
 
   /* Внутрішні відступи (вертикальні - горизонтальні) */
   padding: 16px 32px;
+
+  min-width: 169px;
+  height: 56px;
+  border: none;
 
   /* Радіус кнопки */
   border-radius: 4px;
@@ -244,12 +256,6 @@ body {
   background-color: #404bbf;
 }
 
-/* Стилі для всіх секцій */
-.section {
-  width: 100vw;
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
 
 /* Заголовки секцій - клас Header 2 */
 .section-title {
@@ -267,9 +273,10 @@ body {
 
 
 /* Секція  Features  */
-.feature .section-title {
-  /* ======================================================================= */
-  /* Для приховування заголовка другої секції використовується патерн – visually-hidden: */
+
+/* ======================================================================= */
+/* Для приховування заголовка другої секції використовується патерн – visually-hidden: */
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -280,8 +287,9 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-  /* ======================================================================= */
 }
+/* ======================================================================= */
+
 
 /* Flex-container для списку переваг */
 .feature-list {
@@ -292,13 +300,12 @@ body {
 
 /* Flex-container для однієї переваги */
 .feature-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-basis: calc((100% - 3 * 24px) / 4);
 }
 
 /* Підзаголовки секцій */
 .feature-title {
+  margin-bottom: 8px;
   /* Текстовий стиль - Header 3 */
   font-weight: 500;
   font-size: 20px;
@@ -321,7 +328,7 @@ body {
 
 .card-list { 
   /* Вертикальний відступ від заголовка секції */
-  margin-top: 88px;
+  margin-top: 72px;
   /* Flex-container для карток робітників */
   display: flex;
   flex-direction: row;
@@ -336,6 +343,11 @@ body {
   /* Розрахунок ширини блоку */
   flex-basis: calc((100%-72px)/4);
   
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px ;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius:4px;
+
   /* Колір - стиль  white  */
   background-color: #ffffff;
 }
@@ -344,13 +356,11 @@ body {
 
 /* Інформація щодо робітника */
 .card-content {
-  padding: 16px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  padding: 32px 0;
 }
 
 .card-name {
+  margin-bottom: 8px;
   /* Текстовий стиль - Header 3 */
   font-weight: 500;
   font-size: 20px;
@@ -368,23 +378,26 @@ body {
 
 /* Секція  Our Portfolio  */
 
-.project-list {
+.portfolio .section-title {
   /* Вертикальний відступ від заголовка секції */
-  margin-top: 88px;
+  margin-bottom: 72px;
+}
+
+.project-list {
+
   /* Flex-container для карток проєктів */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  row-gap: 24px;
-  column-gap: 48px;
+  row-gap: 48px;
+  column-gap: 24px;
 }
 
 .project-item {
-  display: flex;
-  flex-direction: column;
+
   /* Розрахунок ширини блоку */
   /* width: 360px; */
-  flex-basis: calc((100%-48px)/3);
+  width: calc((100% - 48px) / 3);
 }
 
 /* .project-img {} */
@@ -392,13 +405,13 @@ body {
 /* Інформація щодо проєкту */
 .project-content {
   padding: 16px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  border: 1px solid #e7e9fc;
+  border-top: none; 
 }
 
 .project-title {
-    /* Текстовий стиль - Header 3 */
+  margin-bottom: 8px;
+  /* Текстовий стиль - Header 3 */
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -417,17 +430,20 @@ body {
   background-color: #2e2f42;
 }
 
-.footer-item {
-  width: 264px;
+
+.page-footer .logo {
+  display: inline-block;
+  margin-bottom: 16px; 
 }
 
-.page-footer .link.logo {
+/* Клас для другої частини логотипу в хедері */
+.page-footer .logo-end {
   /* Колір   - стиль  cloud  */
   color: #f4f4fd;
 }
 
 .text-footer {
-  margin-top: 16px;
+  max-width: 264px;
   /* Колір   - стиль  cloud  */
   color: #f4f4fd;
 }
