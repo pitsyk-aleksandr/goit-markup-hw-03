@@ -397,8 +397,9 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  row-gap: 48px;
   column-gap: 24px;
+  row-gap: 48px;
+
 }
 
 .project-item {
